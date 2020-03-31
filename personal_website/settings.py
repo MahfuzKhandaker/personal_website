@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
+    'contact.apps.ContactConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -135,3 +136,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
