@@ -9,8 +9,9 @@ from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
 
 
+
 def blog_index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(status=1)
     context = {
         'posts': posts
     }

@@ -23,17 +23,20 @@
             
             <div class="card-body">
                 <h2 class="card-title">{{ instance.title }} </h2>
-                <small>
+                <small class="text-muted">
+                    Published on:&nbsp;
                     {{ instance.created_on.date }} |&nbsp;
-                    Read time: {% if instance.read_time <= 1 %} < 1 Minute {% else %}{{ instance.read_time }} minutes {% endif %} |&nbsp;
+                    <i class="far fa-clock text-info"></i> {% if instance.read_time <= 1 %} < 1 Minute {% else %}{{ instance.read_time }} minutes read {% endif %} |&nbsp;
+                    <i class="far fa-eye"></i> {{ instance.number_of_views}} views
+                    <i class="far fa-comment"></i> 12 comments
                     Categories:&nbsp;
                     {% for category in instance.categories.all %}
                     <a href="{% url 'blog_category' category.name %}">
-                        {{ category.name }}
-                    </a>&nbsp;
+                      {{ category.name }}
+                      </a>&nbsp;
                     {% endfor %}
-                </small>
-                <p class="card-text">{{ instance.body | markdown | safe }}</p>
+                  </small>
+                  <p class="card-text">{{ instance.body | markdown | safe }}</p>
             </div>
 
             <div>
