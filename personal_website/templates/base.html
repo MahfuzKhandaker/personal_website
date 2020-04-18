@@ -19,8 +19,13 @@
     {% block head_extra %} {% endblock head_extra %}
   </head>
   <body>
-    {% include 'navbar.html' %}
+      {% include 'navbar.html' %}
 
+    <div id="overlayer"></div>
+      <span class="loader">
+        <span class="loader-inner"></span>
+      </span>
+    
     <div class="container-fluid">
       <header class="blog-header">
         {% include 'header.html' %}
@@ -63,6 +68,7 @@
       </div><!-- /.row -->
 
     </main>
+   
 
     <footer class="blog-footer">
       <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
@@ -82,12 +88,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"></script>
     <script>
+
+      
       $(document).ready(function(){
-        // $(".body-markdown").each(function(){
-        //   var body = $(this).text()
-        //   var markedBody = marked(body)
-        //   $(this).html(markedBody)
-        // });
 
         $(".card-body img").each(function(){
           $(this).addClass("card-img-top");
@@ -105,7 +108,11 @@
             $(this).removeClass("hasValue");
           }
         })
-      })
+      });
+      $(window).on("load", function() {
+	      $(".loader").delay(2000).fadeOut("slow");
+        $("#overlayer").delay(2000).fadeOut("slow");
+      });
     </script>
   </body>
 </html>
@@ -189,6 +196,11 @@
           }
         )
         });
+
+      $(window).load(function() {
+	      $(".loader").delay(2000).fadeOut("slow");
+        $("#overlayer").delay(2000).fadeOut("slow");
+      })
     </script>
   </body>
 </html>

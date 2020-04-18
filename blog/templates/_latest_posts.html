@@ -1,19 +1,17 @@
 {% for entry in posts %}
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title"><a href="{% url 'blog_detail' entry.slug %}">{{ entry.title }}</a></h5>
-    <small class="text-muted">
-      Published on:&nbsp;
-      {{ entry.created_on.date }} |&nbsp;
-      
+<blockquote class="blockquote">
+  <p class="mb-0">{{ entry.title }}</p>
+  <footer class="blockquote-footer">
+    {{ entry.created_on.date }} |&nbsp; 
+
+    <cite title="Source Title">
       {% for category in entry.categories.all %}
       <a href="{% url 'blog_category' category.name %}">
         {{ category.name }}
-        </a>&nbsp;
+      </a>
       {% endfor %}
-    </small>
-    <!-- <a href="{% url 'blog_detail' entry.slug %}" class="btn btn-primary">Read More &rarr;</a> -->
-  </div>
-</div>
+    </cite>
+  </footer>
+</blockquote>
 
 {% endfor %}
