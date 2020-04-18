@@ -1,10 +1,14 @@
-<div class="col-md-12">
-    <h3>Our Sidebar</h3>
-    <p class='text-muted'>You can put any information here you'd like. </p>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-light">Latest Posts</li>
-        <li class="list-group-item list-group-item-light">Announcements</li>
-        <li class="list-group-item list-group-item-light">Calendars</li>
-        <li class="list-group-item list-group-item-light">etc</li>
-      </ul>
+
+{% load blog_tags %}
+<!-- Sidebar: AboutMe>LatestPosts> -->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12">
+          <ul class="list-group">
+            <li class="list-group-item">{% latest_posts %}</li>
+            <li class="list-group-item">GET IN TOUCH</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+      </div>
+    </div>
 </div>

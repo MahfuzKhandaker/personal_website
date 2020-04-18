@@ -7,8 +7,7 @@ from blog.forms import PostForm, CommentForm
 from blog.utils import get_read_time
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
-
-
+from django.utils import timezone
 
 def blog_index(request):
     posts = Post.objects.filter(status=1)
@@ -16,6 +15,17 @@ def blog_index(request):
         'posts': posts
     }
     return render(request, 'blog_index.html', context)
+
+# def latest_posts(request, latest):
+#     # posts = Post.objects.filter(status=1)[:2]
+#     posts = Post.objects.filter(
+#         created_on__lte=timezone.now()
+#     )
+#     context = {
+#         'latest': latest,
+#         'posts': posts
+#     }
+#     return render(request, 'latest_posts.html', context)
 
 
 def blog_category(request, category):

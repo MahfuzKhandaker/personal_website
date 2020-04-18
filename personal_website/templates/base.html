@@ -1,4 +1,5 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,22 +19,59 @@
     {% block head_extra %} {% endblock head_extra %}
   </head>
   <body>
-
     {% include 'navbar.html' %}
-    
+
     <div class="container-fluid">
-      <div class="row mt-3">
-        <div class="col-8">
-            {% block page_content %}{% endblock %}
-        </div>
-        <div class="col-4">
-          {% include 'sidebar.html' %}
-        </div>
-        
-      </div>
-      
+      <header class="blog-header">
+        {% include 'header.html' %}
+      </header>
     </div>
 
+    <main role="main" class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h5 class="pb-3 mb-4 text-center border-bottom">
+            I have no special talent, I'm just passionately curious;
+          </h5>
+
+          <div class="blog-post">
+            {% block page_content %} {% endblock %}
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3 mb-2 rounded">
+            <h4 class="text-center">Latest Posts</h4>
+              {% include 'sidebar.html' %}          
+          </div>
+
+          <!-- <div class="p-3">
+            <h4 class="font-italic">Archives</h4>
+            <ol class="list-unstyled mb-0">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+            </ol>
+          </div> -->
+
+        </aside><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </main>
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+   
     <!-- Optional JavaScript -->
   
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -50,11 +88,12 @@
         //   var markedBody = marked(body)
         //   $(this).html(markedBody)
         // });
-        // $(".post-detail-item img").each(function(){
-        //   $(this).addClass("img-responsive");
-        // });
 
-        $(".comment-reply-btn").click(function(event){
+        $(".card-body img").each(function(){
+          $(this).addClass("card-img-top");
+        });
+
+        $(".comment-reply btn").click(function(event){
           event.preventDefault();
           $(this).parent().next(".comment-reply").fadeToggle();
         });
@@ -67,6 +106,89 @@
           }
         })
       })
+    </script>
+  </body>
+</html>
+      
+      
+        
+       
+
+     
+
+      
+
+    
+  
+  
+  
+
+
+  
+
+    <!-- Optional JavaScript -->
+  
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"></script>
+    <script></script>
+    <script>
+      $(document).ready(function(){
+
+        const navbar = document.querySelector('.navbar')
+
+        navbar.querySelector('.toggle').addEventListener('click',()=>{
+	
+	      navbar.classList.toggle('collapsed')
+	
+      })
+
+        window.addEventListener('scroll',(e)=>{
+        
+        	let windowY = window.pageYOffset
+        
+        	let navbarHeight = document.querySelector('.navbar').offsetHeight
+        
+        	if(windowY>navbarHeight) navbar.classList.add('sticky')
+        	else navbar.classList.remove('sticky')
+        })
+        // responsive image for markdown content 
+        $(".card-body img").each(function(){
+          $(this).addClass("card-img-top")
+        });
+        // Comment Btn Fade toggle
+        $(".comment-reply-btn").click(function(event){
+          event.preventDefault();
+          $(this).parent().next(".comment-reply").fadeToggle();
+        });
+        // Contact Form animation
+        $(".cool-b4-form .form-control").on("input", function(){
+          if($(this).val()){
+            $(this).addClass("hasValue");
+          } else {
+            $(this).removeClass("hasValue");
+          }
+        });
+        // Blog Card Hover Effect
+        $(".col-6").hover(
+          // trigger when mouse hove
+          function(){
+            $(this).animate({
+              marginTop: "-=1%",
+            }, 200);
+          },
+          // trigger when mouse out
+          function(){
+            $(this).animate({
+              marginTop: "0%",
+            }, 200)
+          }
+        )
+        });
     </script>
   </body>
 </html>

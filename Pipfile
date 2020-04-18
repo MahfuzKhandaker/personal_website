@@ -12,6 +12,7 @@ pillow = "*"
 django-markdown-deux = "*"
 django-pagedown = "*"
 markdown = "==3.2.1"
+pylint-django = "*"
 
 [requires]
 python_version = "3.7"

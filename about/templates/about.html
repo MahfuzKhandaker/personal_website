@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-
-<section> 
-        
-  {% for data in instance %}
-
+{% for data in instance %}
+<div class="container-fluid">
+<div class="row">
+  
   <div class="col-md-12">
-    <div class="card w-75 about-card">
+    <div class="card about-card">
       <div class="card-img-block">
         <img class="img-fluid" src="{{ data.profile_pic.url }}" alt="Card image cap">
       </div>
@@ -26,7 +25,8 @@
       </div>
     </div>
   </div>
-    {% endfor %}
-</section>
-
+    
+</div>
+</div>
+{% endfor %}
 {% endblock page_content %}
