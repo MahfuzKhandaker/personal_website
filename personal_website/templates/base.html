@@ -9,8 +9,7 @@
     <!-- Roboto front -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
@@ -19,18 +18,22 @@
     {% block head_extra %} {% endblock head_extra %}
   </head>
   <body>
-      {% include 'navbar.html' %}
 
-    <div id="overlayer"></div>
-      <span class="loader">
-        <span class="loader-inner"></span>
-      </span>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+    <div class="scroll-bar"></div>
+    <div class="content"></div>
+    <!-- <img width="100%" src='https://unsplash.it/3000/3000/?random' /> -->
     
     <div class="container-fluid">
       <header class="blog-header">
+        {% include 'navbar.html' %}
         {% include 'header.html' %}
       </header>
-    </div>
+
+
 
     <main role="main" class="container-fluid">
       <div class="row">
@@ -68,13 +71,11 @@
       </div><!-- /.row -->
 
     </main>
-   
+
+   </div>
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
+      {% include 'footer.html' %}     
     </footer>
 
    
@@ -84,13 +85,42 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"></script>
     <script>
-
+      // Preloader
+      $(window).on('load', function() { // makes sure the whole site is loaded 
+        $('#status').fadeOut(); // will first fade out the loading animation 
+        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+        $('body').delay(350).css({'overflow':'visible'});
+      });
       
+      // jquery function
       $(document).ready(function(){
+        // scroll position indicator
+        $(window).on('scroll', function() {
+
+          var docHeight = $(document).height(),
+              winHeight = $(window).height();
+
+          var viewport = docHeight - winHeight,
+              positionY = $(window).scrollTop();
+
+          var indicator = ( positionY / (viewport)) * 100;
+
+          $('.scroll-bar').css('width', indicator + '%');
+        });
+        // toggle nav
+        $(".toggle").on("click", function(){
+          if ($(".item").hasClass("active")) {
+            $(".item").removeClass("active");
+            $(this).find("a").html("<i class='fas fa-bars'></>");
+          } else{
+            $(".item").addClass("active");
+            $(this).find("a").html("<i class='fas fa-times'></>");
+          }
+        });
 
         $(".card-body img").each(function(){
           $(this).addClass("card-img-top");
@@ -109,10 +139,7 @@
           }
         })
       });
-      $(window).on("load", function() {
-	      $(".loader").delay(2000).fadeOut("slow");
-        $("#overlayer").delay(2000).fadeOut("slow");
-      });
+     
     </script>
   </body>
 </html>

@@ -1,27 +1,18 @@
+{% for entry in abouts %}
 
-  {% for entry in abouts %}
-
-  <div class="container-fluid bio-container">
-    <div class="bio-info">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="bio-image">
-                <img src="{{ entry.profile_pic.url }}" alt="profile-image" />
-              </div>			
-            </div>
-          </div>	
-        </div>
-        <div class="col-md-6">
-          <div class="bio-content">
-            <h3 class="name">{{ entry.name }}</h3>
-            <h6>{{ entry.title }}</h6>
-            <p>{{ entry.bio }}</p>
-          </div>
-        </div>
-      </div>	
+<div class="container-fluid bio-container">
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="bio-image">
+        <img src="{{ entry.profile_pic.url }}" alt="profile-image" />
+      </div>
+      <div class="bio-content">
+        <h3 class="name">{{ entry.name }}</h3>
+        <h6 class="title">{{ entry.title }}</h6>
+        <p class="bio">{{ entry.bio }}</p>
+      </div>
     </div>
-  </div>
+  </div>	
+</div>
 
-  {% endfor %}
+{% endfor %}

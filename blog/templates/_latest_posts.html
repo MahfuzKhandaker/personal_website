@@ -1,6 +1,6 @@
 {% for entry in posts %}
 <blockquote class="blockquote">
-  <p class="mb-0">{{ entry.title }}</p>
+  <p class="mb-0"><a href="{% url 'blog_detail' entry.slug %}">{{ entry.title }}</a></p>
   <footer class="blockquote-footer">
     {{ entry.created_on.date }} |&nbsp; 
 

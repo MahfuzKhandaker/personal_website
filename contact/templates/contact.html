@@ -2,11 +2,13 @@
 
 {% block page_content %}
 
-<div class="wrap">
-  <div class="container">
+
+  <div class="container-fluid">      
+    <h2 class="text-center pt-4">Contact Us</h2>
+
+    <div class="wrap">
     <form class="cool-b4-form" method="POST">
       {% csrf_token %}
-      <h2 class="text-center pt-4">Contact Us</h2>
       <div class="form-row">
         <div class="col-md-6">
           <div class="form-group">
@@ -33,6 +35,6 @@
       </div>
     </form>
   </div>
-</div>  
+</div>
 
 {% endblock %}

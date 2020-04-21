@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-
-from contact.views import emailView, successView
+from contact import views
 
 urlpatterns = [
-    path('email/', emailView, name='email'),
-    path('success/', successView, name='success'),
+    path('', views.contact_view, name='contact'),
+    path('success/', views.success_view, name='success'),
 ]

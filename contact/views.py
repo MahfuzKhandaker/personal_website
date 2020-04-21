@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
-def emailView(request):
+def contact_view(request):
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -13,11 +13,11 @@ def emailView(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['admin@blog.com'])
+                send_mail(subject, message, from_email, ['mahfuzkhandaker.bd@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
-    return render(request, "email.html", {'form': form})
+    return render(request, "contact.html", {'form': form})
 
-def successView(request):
+def success_view(request):
     return HttpResponse('Success! Thank you for your message.')

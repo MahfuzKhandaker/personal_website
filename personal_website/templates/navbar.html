@@ -1,22 +1,15 @@
-
-<div class="navbar">
-	<div class="logo">
-		<h2>CODEPRESS</h2>
-	</div>
-	<ul class="links">
-		<li><a href="{% url 'home' %}">Home</a></li>
-		<li><a href="{% url 'home' %}">Blog</a></li>
-		<li><a href="{% url 'about' %}">About</a></li>
-		<li><a href="{% url 'project_index' %}">Project</a></li>
-		<li><a href="{% url 'email' %}">Contact Us</a></li>
+<nav>
+	<ul class="menu">
+	  <li class="logo"><a href="{% url 'home' %}">CODEPRESS</a></li>
+	  <li class="item"><a href="{% url 'home' %}">Home</a></li>
+	  <li class="item"><a href="{% url 'about' %}">About</a></li>
+	  <li class="item"><a href="{% url 'project_index' %}">Portfolio</a></li>
+	  <li class="item"><a href="{% url 'home' %}">Blog</a></li>
+	  <li class="item"><a href="{% url 'contact' %}">Contact</a></li>
+	  <li class="item button"><a href="{% url 'login' %}">Log In</a></li>
+	  <li class="item button secondary"><a href="{% url 'signup' %}">Sign Up</a></li>
+	  <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
 	</ul>
-	<div class="right">
-		<button>Dashboard</button>
-	</div>
-	<div class="toggle">
-		<div class="line1"></div>
-		<div class="line2"></div>
-		<div class="line3"></div>
-	</div>	
-</div>
+  </nav>
 
+ 
