@@ -40,12 +40,17 @@ INSTALLED_APPS = [
 
     'pagedown.apps.PagedownConfig',
 
+    'crispy_forms',
+
     'projects.apps.ProjectsConfig',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     'contact.apps.ContactConfig',
     'about.apps.AboutConfig',
+    'newsletters.apps.NewslettersConfig',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 

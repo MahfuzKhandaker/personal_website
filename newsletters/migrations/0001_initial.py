@@ -12,16 +12,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Project',
+            name='NewsUsers',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('technology', models.CharField(max_length=20)),
-                ('image', models.ImageField(blank=True, upload_to='images/')),
+                ('email', models.EmailField(max_length=254)),
+                ('date_added', models.DateField(auto_now_add=True)),
             ],
             options={
-                'verbose_name_plural': 'Projects',
+                'verbose_name': 'NewsUser',
+                'verbose_name_plural': 'NewsUsers',
             },
         ),
     ]

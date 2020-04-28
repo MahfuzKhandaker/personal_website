@@ -25,6 +25,8 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     path('contact/', include('contact.urls')),
     path('about/', include('about.urls')),
+    path('newsletters/', include('newsletters.urls', namespace='newsletters')),
+    path('control/', include('newsletter_control_panel.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG: # new
