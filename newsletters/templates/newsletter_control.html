@@ -1,28 +1,13 @@
 {% extends 'control_base.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 <div class="container-fluid">
-
-<form method="post" novalidate>
-  {% csrf_token %}
-
-  {{ form.subject|as_crispy_field }}
-  {{ form.body|as_crispy_field }}
-
   <div class="row">
-    <div class="col-6">
-      {{ form.email|as_crispy_field }}
-    </div>
-    <div class="col-6">
-      {{ form.status|as_crispy_field }}
+    <div class="col-md-12">
+        {% block form %}
+          {% include 'newsletter_form.html' %}
+        {% endblock %}
     </div>
   </div>
-  
-  <button type="submit" class="btn btn-success">Save Newsletter</button>
-</form>
-
 </div>
-  
 {% endblock %}
