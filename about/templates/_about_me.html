@@ -1,6 +1,25 @@
 {% for entry in abouts %}
 
-<div class="container-fluid bio-container">
+<!-- Header -->
+<header class="masthead">
+  <div class="container-fluid d-flex h-100 align-items-center">
+    <div class="row">
+      <div class="col-12">
+        <div class="bio-container">
+          <img class="profile-img" src="{{ entry.profile_pic.url }}" alt="profile-image" />
+        </div>
+        <div class="mx-auto text-center">
+          
+      <h1 class="mx-auto my-0 text-uppercase">{{ entry.name }}</h1>
+      <h2 class="text-white-50 mx-auto mt-2 mb-5">{{ entry.title }}</h2>
+      <a href="{% url 'about' %}" class="btn btn-primary js-scroll-trigger">About</a>
+    </div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+<!-- <div class="container-fluid bio-container">
   <div class="row mb-2">
     <div class="col-12">
       <div class="bio-image">
@@ -13,6 +32,7 @@
       </div>
     </div>
   </div>	
-</div>
+</div> -->
 
 {% endfor %}
+

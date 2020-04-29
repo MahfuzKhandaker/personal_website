@@ -17,16 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home' ),
     path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls')),
     path('projects/', include('projects.urls')),
     path('contact/', include('contact.urls')),
     path('about/', include('about.urls')),
     path('newsletters/', include('newsletters.urls', namespace='newsletters')),
-    path('control/', include('newsletter_control_panel.urls')),
+    path('newsletter_control/', include('newsletter_control_panel.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG: # new
