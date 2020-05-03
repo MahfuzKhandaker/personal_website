@@ -1,18 +1,11 @@
-
 <!-- Navigation -->
-<nav>
-	<ul class="menu">
-	  <li class="logo"><a href="{% url 'home' %}">CODEPRESS</a></li>
-	  <li class="item"><a href="{% url 'home' %}">Home</a></li>
-	  <li class="item"><a href="{% url 'about' %}">About</a></li>
-	  <li class="item"><a href="{% url 'project_index' %}">Portfolio</a></li>
-	  <li class="item"><a href="{% url 'posts' %}">Blog</a></li>
-	  <li class="item"><a href="{% url 'contact' %}">Contact</a></li>
-	  <li class="item button"><a href="{% url 'login' %}">Log In</a></li>
-	  <li class="item button secondary"><a href="{% url 'signup' %}">Sign Up</a></li>
-	  <li class="item button secondary"><a href="{% url 'newsletters:subscribe' %}">NewsLetter</a></li>
-	  <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-	</ul>
-  </nav>
+<div class="nav-scroller py-1 mb-2">
+	<nav class="nav d-flex justify-content-between">
+		<a class="p-2 text-muted" href="{% url 'home' %}">Home</a>
+		<a class="p-2 text-muted" href="{% url 'about' %}">About</a>
+		<a class="p-2 text-muted" href="{% url 'project_index' %}">Portfolio</a>
+		<a class="p-2 text-muted" href="{% url 'posts' %}">Blog</a>
+		<a class="p-2 text-muted" href="{% url 'contact' %}">Contact</a>
+	</nav>
+</div>
 
- 
