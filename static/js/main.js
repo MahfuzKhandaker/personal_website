@@ -21,15 +21,15 @@ $(window).on('load', function() { // makes sure the whole site is loaded
       $('.scroll-bar').css('width', indicator + '%');
     });
     // toggle nav
-    $(".toggle").on("click", function(){
-      if ($(".item").hasClass("active")) {
-        $(".item").removeClass("active");
-        $(this).find("a").html("<i class='fas fa-bars'></>");
-      } else{
-        $(".item").addClass("active");
-        $(this).find("a").html("<i class='fas fa-times'></>");
-      }
-    });
+    // $(".toggle").on("click", function(){
+    //   if ($(".item").hasClass("active")) {
+    //     $(".item").removeClass("active");
+    //     $(this).find("a").html("<i class='fas fa-bars'></>");
+    //   } else{
+    //     $(".item").addClass("active");
+    //     $(this).find("a").html("<i class='fas fa-times'></>");
+    //   }
+    // });
   
     $(".card-body img").each(function(){
       $(this).addClass("card-img-top");

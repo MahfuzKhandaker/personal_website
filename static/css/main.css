@@ -16,8 +16,8 @@ html {
 
 body {
 	display: block;
-	background-color: #fff;
-	color: #212529
+	background: #26262b;
+	color: #ecf0f5
 }
 
 .container-fluid {
@@ -27,11 +27,63 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-/* div {
-    display: block;
-} */
 
+/* START header */
+.discord-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
 
+.header {
+  max-width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+.header h1 {
+  font-family: Whitney, "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 24pt;
+  color: #fff;
+}
+
+.header p {
+  max-width: 60%;
+  font-family: Whitney, "Open Sans", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 13pt;
+  color: hsla(0, 0%, 100%, 0.6);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.white-button {
+  width: 10%;
+  background-color: #fff;
+  border: 2px solid #fff;
+  color: #000;
+}
+
+.blue-button:hover,
+.white-button:hover {
+  transform: translateY(1px);
+}
+
+.blue-button:active,
+.white-button:active {
+  transform: translateY(2px);
+}
+
+.blue-button,
+.white-button {
+  outline: transparent !important;
+}
+/* end header */
 .blog-header {
     line-height: 1;
 	border-bottom: 1px solid #e5e5e5;
@@ -90,8 +142,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3rem;
   }
 }
+/* Navbar */
 
-.nav-scroller {
+/* .nav-scroller {
   position: relative;
   z-index: 2;
   height: 2.75rem;
@@ -116,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: .875rem;
-}
+} */
 
 .card-img-right {
   height: 100%;
@@ -168,30 +221,6 @@ h1, h2, h3, h4, h5, h6 {
 	  position: sticky;
 	}
   }
-  
-  /* .sidebar .nav-link {
-	font-weight: 500;
-	color: #333;
-  }
-  
-  .sidebar .nav-link .feather {
-	margin-right: 4px;
-	color: #999;
-  }
-  
-  .sidebar .nav-link.active {
-	color: #007bff;
-  }
-  
-  .sidebar .nav-link:hover .feather,
-  .sidebar .nav-link.active .feather {
-	color: inherit;
-  }
-  
-  .sidebar-heading {
-	font-size: .75rem;
-	text-transform: uppercase;
-  } */
 
 /* Jumbotron */
 .jumbotron {
@@ -619,7 +648,7 @@ p {
 } */
 .card{
 	padding: .5em;
-  	background: #fdfcfc;
+  	background: #26262b;
   	-webkit-transition: all 0.3s ease;
   	transition: all 0.3s ease;
 }
