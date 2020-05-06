@@ -1,34 +1,14 @@
-<!-- Navigation -->
-<!-- <div class="nav-scroller py-1 mb-2">
-	
-</div> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-	<a class="navbar-brand" href="{% url 'home' %}">letsflyonthewebsky</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-  
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-	  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-		<li class="nav-item active">
-		  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="{% url 'about' %}">About</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="{% url 'project_index' %}">Portfolio</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'posts' %}">Blog</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'contact' %}">Contact</a>
-		</li>
-	  </ul>
-	  <form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	  </form>
-	</div>
-  </nav>
+<nav class="sticky-nav">
+	<ul class="menu">
+		<li class="logo"><a href="{% url 'home' %}">letsflyonthewebsky.com</a></li>
+		<li class="item"><a href="{% url 'home' %}">Home</a></li>
+		<li class="item"><a href="{% url 'about' %}">About</a></li>
+		<li class="item"><a href="{% url 'project_index' %}">Portfolio</a></li>
+		<li class="item"><a href="{% url 'posts' %}">Blog</a></li>
+		<li class="item"><a href="{% url 'contact' %}">Contact</a></li>
+		<li class="item button"><a href="{% url 'login' %}">Log In</a></li>
+		<li class="item button secondary"><a href="{% url 'signup' %}">Sign Up</a></li>
+		<li class="item button secondary"><a href="{% url 'newsletters:subscribe' %}">NewsLetter</a></li>
+		<li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+	</ul>	
+</nav>
