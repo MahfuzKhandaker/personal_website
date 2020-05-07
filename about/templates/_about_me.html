@@ -12,14 +12,12 @@
       </div>
       <div class="col-8">
         <h3>
-          Hi,<br />
-          I’m 
+          Hi, I’m 
           <span class="color-secondary">{{ about_entry.name }}
           </span>
           <br />
-          I,m a <span class="color-secondary">{{ about_entry.title }}</span>, at 
-          <a class="color-secondary" target="_blank" href="{% url 'home' %}">{{ about_entry.website }}</a> 
-        </h3>
+          I,m a <span class="color-secondary">{{ about_entry.title }}</span></h3>
+          <p><a class="color-secondary" target="_blank" href="{% url 'home' %}">{{ about_entry.website }}</a></p>
       </div>
     </div>
   </div>

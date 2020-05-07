@@ -49,25 +49,22 @@
 
         </div><!-- /.blog-main -->
 
-        <aside class="col-md-4 sidebar">
-          <div class="sidebar-sticky">
-            <h4 class="text-center">Latest Posts</h4>
-              {% include 'sidebar.html' %}
-          
-
-          <div class="p-3">
-            <div class="container-fluid">
-              <div class="row justify-content-center">
-                <div class="col-12">
-                      <ul class="list-group">
-                        <li class="list-group-item">GET IN TOUCH</li>
-                        <li class="list-group-item">Archives</li>
-                      </ul>
-                  </div>
-                </div>
+        <aside class="col-md-4 blog-sidebar">
+          <div class="make-me-sticky">
+            <div class="p-3 mb-2 rounded">
+              <h4 class="text-center">Latest Posts</h4>
+                {% include 'sidebar.html' %}
             </div>
           </div>
+          <div class="make-me-sticky">
+            <div class="p-3 mb-2 rounded">
+              <h4 class="text-center">Newsletter</h4>
+              <div class="alert alert-primary" role="alert">
+                Hey Developer! Do you want to make-me-sticky?
+              </div>
+            </div>
           </div>
+          
         </aside><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
