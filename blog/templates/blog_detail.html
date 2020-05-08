@@ -54,7 +54,7 @@
                     <footer>
                         <small> By {{ comment.user }} | {{comment.timestamp|timesince }} ago | {% if comment.children.count > 0 %} {{ comment.children.count }} Comment {% if comment.children.count > 1 %} {{ comment.children.count }} s {% endif %} | {% endif %}</small> <a class="comment-reply-btn" href="#">Reply</a> | <a class="" href="{{ comment.get_absolute_url }}">Thread</a> 
                     </footer>
-                    <div class="comment-reply" style="display: none;">
+                    <div class="comment-reply">
                         {% for child_comment in comment.children %}
                         <blockquote class="blockquote">
                             <p class="mb-0">{{ child_comment.content }}</p>

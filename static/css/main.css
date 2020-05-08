@@ -434,44 +434,7 @@ header p {
     line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-/* a {
-    color: #F0DA50;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-} */
-
-  /* .btn {
-	-webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-	box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-	padding: 1.25rem 2rem;
-	font-family: 'Varela Round';
-	font-size: 80%;
-	text-transform: uppercase;
-	letter-spacing: .15rem;
-	border: 0;
-  }
-  
-  .btn-primary {
-	background-color: #781c2e;
-  }
-  
-  .btn-primary:hover {
-	background-color: #601625;
-  }
-  
-  .btn-primary:focus {
-	background-color: #601625;
-	color: white;
-  }
-  
-  .btn-primary:active {
-	background-color: #3d151a !important;
-  }
-   */
-  
+}  
   
   /* fancy hr */
   
@@ -708,15 +671,10 @@ p {
 
 /* START Sidebar: make-me-sticky  */
 .blog-sidebar{
-	position: relative;
-	top: 0;
-	right: 0;
+	position: absolute;
 	width: 100%;
-	height: 25%;
-	
-
-	
-}		
+	height: 100%;
+}
 
 .make-me-sticky {
 	position: -webkit-sticky;
@@ -805,62 +763,6 @@ p {
   background-color:#6ab04c;
   color:#fff;
 }
-
-/* Contact */
-.wrap {
-	/* background: linear-gradient(to bottom, #f6f6f6, #e9e9e9); */
-	height: 100%;
-  }
-  .cool-b4-form h2{
-	text-align: center;
+.comment-reply{
+	display: none;
 }
-  .cool-b4-form .btn {
-	border-radius: 0;
-  }
-  .cool-b4-form .form-group {
-	position: relative;
-	padding-top: 20px;
-	margin-bottom: 0;
-   /* If there's only 1 input make it full height */
-  }
-  .cool-b4-form .form-group:first-child:last-child {
-	height: 100%;
-  }
-  .cool-b4-form .form-group:first-child:last-child .form-control {
-	height: 100%;
-  }
-  .cool-b4-form .form-group textarea {
-	resize: none;
-  }
-  .cool-b4-form .form-group .input-highlight {
-	content: "";
-	width: 0;
-	height: 2px;
-	background: #e03443;
-	position: absolute;
-	display: block;
-	bottom: 0;
-	transition: width 0.4s ease;
-  }
-  .cool-b4-form .form-group label {
-	position: absolute;
-	left: 10px;
-	top: 25px;
-	transition: all 0.4s ease;
-  }
-  .cool-b4-form .form-group .form-control {
-	border-radius: 0;
-	border-width: 0 0 2px 0;
-  }
-  .cool-b4-form .form-group .form-control:focus, .cool-b4-form .form-group .form-control.hasValue {
-	box-shadow: none;
-	border-color: #ced4da;
-  }
-  .cool-b4-form .form-group .form-control:focus ~ .input-highlight, .cool-b4-form .form-group .form-control.hasValue ~ .input-highlight {
-	width: 100%;
-  }
-  .cool-b4-form .form-group .form-control:focus ~ label, .cool-b4-form .form-group .form-control.hasValue ~ label {
-	transform: scale(0.7);
-	top: 0;
-	left: 0;
-  }

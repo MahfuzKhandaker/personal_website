@@ -42,16 +42,8 @@ $(document).ready(function(){
     $(this).addClass("card-img-top");
   });
 
-  $(".comment-reply btn").click(function(event){
+  $(".comment-reply").click(function(event){
     event.preventDefault();
     $(this).parent().next(".comment-reply").fadeToggle();
   });
-
-  $(".cool-b4-form .form-control").on("input", function(){
-    if($(this).val()){
-      $(this).addClass("hasValue");
-    } else {
-      $(this).removeClass("hasValue");
-    }
-  })
 });
