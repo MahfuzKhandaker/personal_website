@@ -41,8 +41,12 @@ $(document).ready(function(){
   $(".card-body img").each(function(){
     $(this).addClass("card-img-top");
   });
+  // $(".comment-reply btn").on("click", function(event){
+  //   event.preventDefault();
+  //   $(this).parent().next('.comment-reply').fadeToggle();
+  // });
 
-  $(".comment-reply").click(function(event){
+  $(".comment-reply-btn").click(function(event){
     event.preventDefault();
     $(this).parent().next(".comment-reply").fadeToggle();
   });
