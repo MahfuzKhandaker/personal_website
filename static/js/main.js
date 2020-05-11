@@ -37,15 +37,11 @@ $(document).ready(function(){
       $(this).find("a").html("<i class='fas fa-times'></>");
     }
   });
-
+  // markdown content image resized to bootstrap card-img-top class
   $(".card-body img").each(function(){
     $(this).addClass("card-img-top");
   });
-  // $(".comment-reply btn").on("click", function(event){
-  //   event.preventDefault();
-  //   $(this).parent().next('.comment-reply').fadeToggle();
-  // });
-
+  // reply btn fadeToggle()
   $(".comment-reply-btn").click(function(event){
     event.preventDefault();
     $(this).parent().next(".comment-reply").fadeToggle();

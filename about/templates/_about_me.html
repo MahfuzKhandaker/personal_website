@@ -4,21 +4,26 @@
 <header>
   <div class="container-fluid">
     <div class="row">
-      
-      <div class="col-4">
-        <div class="image" >
-          <img src="{{ about_entry.profile_pic.url }}" >
+      <div class="col-12">
+        <div class="parent">
+          <div class="box-one">
+              <h3>Hi, I’m <span class="color-secondary">{{ about_entry.name }}</span></h3>
+                
+              <h5>I,m a <span class="color-secondary">{{ about_entry.title }}</span></h5>
+              <p>{{ about_entry.bio }}</p>
+                
+              <p><a class="color-secondary" target="_blank" href="{% url 'home' %}">{{ about_entry.website }}</a></p>
+
+              <!-- <div> <a class="contact-link" target="_blank" href="{% url 'contact' %}"> Contact Me</a> </div> -->
+          </div>
+          <div class="box-two">
+            <div class="image" >
+            <img src="{{ about_entry.profile_pic.url }}" >
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-8">
-        <h3>
-          Hi, I’m 
-          <span class="color-secondary">{{ about_entry.name }}
-          </span>
-          <br />
-          I,m a <span class="color-secondary">{{ about_entry.title }}</span></h3>
-          <p><a class="color-secondary" target="_blank" href="{% url 'home' %}">{{ about_entry.website }}</a></p>
-      </div>
+    </div>
+      
     </div>
   </div>
   </header>

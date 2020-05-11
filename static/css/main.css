@@ -19,30 +19,64 @@ body {
 	background: #eee;
 	color: #000000;
 }
-
-.container-fluid {
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
 }
 
 /* START header */
 header {
-    min-height: 15vh;
+	min-height: 10vh;
     z-index: 10;
 }
+.parent {
+	background-color: #252E3B;
+	display: flex;
+  }
+
+  .box-one {
+	width: 75%;
+	color: white;
+	background-color: #252E3B;
+	padding: 5px;
+  }
+  .box-two {
+	width: 50%;
+	background: linear-gradient(-57deg, #F0DA50 63%, #252E3B 42%);
+	color: white;
+  }
+   .color-secondary, a {
+	color: #F0DA50;
+	text-decoration: none;
+}
+.contact-link {
+	padding: 5px;
+	background: #F7DF1E;
+	border-radius: 5px;
+	font-family: monospace;
+	font-weight: 700;
+	font-size: 18px;
+	color: #000000;
+  }
 
 header h3 {
-  margin: 1.5px;
-  font-size: 0.85em;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 1.15em;
   font-family: monospace;
 }
+header h5 {
+  	padding-left: 10px;
+	font-size: 1em;
+	font-family: monospace;
+  }
 
 header p {
-	margin: 0px;
-	font-size: 0.65em;
+  	padding-left: 10px;
+	font-size: 0.60em;
 	font-family: monospace;
   }
 
@@ -50,7 +84,8 @@ header p {
     height: 66px;
     width: 66px;
     border-radius: 50%;
-    margin: 3%;
+	margin-top: 15%;
+	margin-left: 20%;
 }
 .image img {
   max-width: 100%;
@@ -59,16 +94,14 @@ header p {
   border: 3px solid #fafad2;
 }
 
-
 @media(min-width: 576px){
-	header {
-		height: 95px;
-	}
 	header h3{
-		font-size: 1em;
+		font-size: 1.25em;
+	}
+	header h5{
+		font-size: 1.15em;
 	}
 	header p {
-		margin: 0px;
 		font-size: 0.75em;
 		font-family: monospace;
 	}
@@ -76,18 +109,18 @@ header p {
 		height: 72px;
 		width: 72px;
 		border-radius: 50%;
-		margin: 3%;
-	}
+		/* margin-top: 5%; */
+		margin-left: 20%;
+}
 }
 @media(min-width: 768px){
-	header {
-		height: 100px;
-	}
 	header h3{
-		font-size: 1.15em;
+		font-size: 1.50em;
+	}
+	header h5{
+		font-size: 1.25em;
 	}
 	header p {
-		margin: 0px;
 		font-size: 0.85em;
 		font-family: monospace;
 	  }
@@ -95,18 +128,18 @@ header p {
 		height: 77px;
 		width: 77px;
 		border-radius: 50%;
-		margin: 3%;
+		/* margin-top: 6%; */
+		margin-left: 22%;
 	}
 }
 @media(min-width: 992px){
-	header {
-		height: 107px;
-	}
 	header h3{
-		font-size: 1.25em;
+		font-size: 1.75em;
+	}
+	header h5{
+		font-size: 1.50em;
 	}
 	header p {
-		margin: 0px;
 		font-size: 1.15em;
 		font-family: monospace;
 	  }
@@ -114,18 +147,18 @@ header p {
 		height: 82px;
 		width: 82px;
 		border-radius: 50%;
-		margin: 3%;
+		/* margin-top: 7%; */
+		margin-left: 25%;
 	}
 }
 @media(min-width: 1200px){
-	header {
-		height: 117px;
-	}
 	header h3{
-		font-size: 1.50em;
+		font-size: 2.25em;
+	}
+	header h5{
+		font-size: 2em;
 	}
 	header p {
-		margin: 0px;
 		font-size: 1.25em;
 		font-family: monospace;
 	  }
@@ -133,28 +166,16 @@ header p {
 		height: 87px;
 		width: 87px;
 		border-radius: 50%;
-		margin: 3%;
+		/* margin-top: 8%; */
+		margin-left: 28%;
 	}
-}
-.color-secondary, a {
-	color: #006d6d;
-	text-decoration: none;
-  }
-.contact-link {
-  padding: 10px 30px;
-  background: #F7DF1E;
-  border-radius: 5px;
-  font-family: monospace;
-  font-weight: 700;
-  font-size: 18px;
-  color: #000000;
 }
 /* end header */
 
 /* Navbar */
 
 .sticky-nav {
-  	padding: 3px;
+  	padding: 5px;
   	background: #fcfcfc;
   	border: 0.25px solid #b1b0b0;
 }
@@ -313,11 +334,11 @@ header p {
     background: #eee;
     border-radius: .3rem;
 }
-/* @media (min-width: 576px){
+@media (min-width: 576px){
 	.jumbotron {
 	padding: 4rem 2rem;
 	}
-} */
+}
 
 /*
  * Blog name and description
@@ -350,7 +371,8 @@ header p {
    * Blog posts
    */
   .blog-post {
-	margin-bottom: 4rem;
+	margin: 3%;
+	/* margin-bottom: 4rem; */
   }
   .blog-post-title {
 	margin-bottom: .25rem;
@@ -467,24 +489,7 @@ header p {
 	top: -0.7em;
 	font-size: 1.5em;
 	padding: 0 0.25em;
-  
-  }
-  
-
-
-  /* SCROLL INDICATOR */
-  /* .scroll-bar {
-	height: 5px;
-	width: 10px;
-	background-color: rgb(255, 42, 42);
-	position: fixed;
-	z-index: 2;
-  }
-  
-  .content {
-	height: 100%;
-  } */
-  /* SCROLL INDICATOR END */
+}
 
 .bio-container{
 	padding: .5em;
@@ -583,7 +588,7 @@ p {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 15vh;
-  	padding: 0 10px;
+  	/* padding: 0 10px; */
 }
 /* END Sidebar: make-me-sticky  */
 
@@ -603,17 +608,17 @@ p {
 .anim-card:hover{
 	transform: scale(1.03)
   }
-.card-img-top {
+/* .card-img-top {
   width: 100%;
   height: 33vh;
   object-fit: cover;
-}
+} */
 
 /*About Card*/
 .about-card .card-img-block{
   float:left;
   width:100%;
-  height:200px;
+  height:50vh;
   overflow: hidden;
 }
 .about-card .card-body{
