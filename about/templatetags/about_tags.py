@@ -8,3 +8,8 @@ register = template.Library()
 def about_me():
     abouts = About.objects.all()
     return {'abouts': abouts}
+
+@register.inclusion_tag('_about_me_detail.html')
+def about_me_detail():
+    abouts = About.objects.all()
+    return {'abouts': abouts}

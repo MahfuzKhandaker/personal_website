@@ -1,0 +1,21 @@
+{% for about_entry in abouts %}
+
+<div class="card">
+    <h5 class="card-header text-center">{{ about_entry.name }}</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-8">
+                <h3 class="card-title">{{ about_entry.title }}</h3>
+                <h5 class="card-title">{{ about_entry.bio }}</h5>
+                <p class="card-text">{{ about_entry.description }}</p>
+                <a href="{% url 'newsletters:subscribe' %}" class="btn btn-primary">Subscribe</a>
+            </div>
+            <div class="col-4">
+                <img class="img-thumbnail" src="{{ about_entry.profile_pic.url }}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
