@@ -5,6 +5,7 @@ from accounts.forms import UserCreationForm
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth import settings
+from django.shortcuts import render, redirect
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm

@@ -6,9 +6,12 @@
 		<li class="item"><a href="{% url 'project_index' %}">Portfolio</a></li>
 		<li class="item"><a href="{% url 'posts' %}">Blog</a></li>
 		<li class="item"><a href="{% url 'contact' %}">Contact</a></li>
+		{% if not request.user.is_authenticated %}
 		<li class="item button"><a href="{% url 'login' %}">Log In</a></li>
 		<li class="item button secondary"><a href="{% url 'signup' %}">Sign Up</a></li>
-		<li class="item button secondary"><a href="{% url 'newsletters:subscribe' %}">NewsLetter</a></li>
+		{% else %}
+		<li class="item button"><a href="{% url 'logout' %}">Logout</a></li>
+		{% endif %}
 		<li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
 	</ul>	
 </nav>

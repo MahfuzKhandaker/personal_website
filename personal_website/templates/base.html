@@ -39,12 +39,18 @@
     <main role="main" class="container-fluid">
       <div class="row">
         <div class="col-md-8 blog-main">
+
+          <!-- Breadcrumb -->
+
           <!-- <h5 class="pb-3 mb-4 text-center border-bottom">
             I have no special talent, I'm just passionately curious;
           </h5> -->
 
           <div class="blog-post">
             {% block page_content %} {% endblock %}
+
+            {% block subscribe_content %}
+            {% endblock subscribe_content %}
           </div><!-- /.blog-post -->
 
         </div><!-- /.blog-main -->

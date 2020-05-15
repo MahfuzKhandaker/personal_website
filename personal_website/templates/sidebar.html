@@ -1,10 +1,12 @@
 {% load blog_tags %}
 
+
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-12">
           <ul class="list-group">
             <li class="list-group-item">{% latest_posts %}</li>
+            <li class="list-group-item"><a href="{% url 'newsletters:subscribe' %}">NewsLetter</a></li>
           </ul>
     </div>
   </div>

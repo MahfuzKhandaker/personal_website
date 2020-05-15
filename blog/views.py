@@ -16,17 +16,6 @@ def blog_index(request):
     }
     return render(request, 'blog_index.html', context)
 
-# def latest_posts(request, latest):
-#     # posts = Post.objects.filter(status=1)[:2]
-#     posts = Post.objects.filter(
-#         created_on__lte=timezone.now()
-#     )
-#     context = {
-#         'latest': latest,
-#         'posts': posts
-#     }
-#     return render(request, 'latest_posts.html', context)
-
 
 def blog_category(request, category):
     posts = Post.objects.filter(

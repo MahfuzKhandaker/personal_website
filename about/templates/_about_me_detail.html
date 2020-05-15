@@ -8,7 +8,7 @@
                 <h3 class="card-title">{{ about_entry.title }}</h3>
                 <h5 class="card-title">{{ about_entry.bio }}</h5>
                 <p class="card-text">{{ about_entry.description }}</p>
-                <a href="{% url 'newsletters:subscribe' %}" class="btn btn-primary">Subscribe</a>
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact</a>
             </div>
             <div class="col-4">
                 <img class="img-thumbnail" src="{{ about_entry.profile_pic.url }}" alt="">
