@@ -5,9 +5,14 @@
 {% block page_content %}
 
 <div class="container-fluid">
+  <h1>{{ post_num }} Blogs</h1>
 <div class="row">
+
   {% for post in posts %}
+  
+
     <div class="col-md-6">
+      
         <div class="card mb-2 anim-card">
             <img class="card-img-top img-fluid" src="{{ post.main_image.url }}">
             <div class="card-body">
@@ -31,6 +36,12 @@
         </div>
     </div>
     {% endfor %}
+  </div>
+  {% if is_paginated %}
+  <div class="container">
+    {% include 'pagination.html' %}
 </div>
+{% endif %}
+
 </div>
 {% endblock %}

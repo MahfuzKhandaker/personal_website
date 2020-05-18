@@ -8,14 +8,20 @@ from blog.utils import get_read_time
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.views import generic
 
-def blog_index(request):
-    posts = Post.objects.filter(status=1)
-    context = {
-        'posts': posts
-    }
-    return render(request, 'blog_index.html', context)
 
+class Blogs(generic.ListView):
+    model = Post
+    template_name = 'blog_index.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super(Blogs, self).get_context_data(**kwargs)
+        context['post_num'] = Post.objects.count()
+        return context
+        
 
 def blog_category(request, category):
     posts = Post.objects.filter(
