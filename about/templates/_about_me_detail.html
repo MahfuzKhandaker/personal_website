@@ -1,17 +1,18 @@
 {% for about_entry in abouts %}
 
 <div class="card">
-    <h5 class="card-header text-center">{{ about_entry.name }}</h5>
     <div class="card-body">
         <div class="row">
-            <div class="col-md-6">
-                <img class="img-thumbnail img-fluid" src="{{ about_entry.profile_pic.url }}" alt="">
+            <div class="col-md-4 py-3">
+                <img class="rounded-circle mx-auto d-block" src="{{ about_entry.profile_pic.url }}" alt="">
             </div>
-            <div class="col-md-6">
-                <h3 class="card-title">{{ about_entry.title }}</h3>
-                <h5 class="card-title">{{ about_entry.bio }}</h5>
+            <div class="col-md-8 py-3">
+                <h3 class="card-title">{{ about_entry.name }}</h3>
+                <h5 class="card-subtitle text-muted">{{ about_entry.title }}</h5>
+                <small class="text-muted">{{ about_entry.bio }}</small>
+                <hr>
                 <p class="card-text">{{ about_entry.description }}</p>
-                <a href="{% url 'contact' %}" class="btn btn-primary">Contact</a>
+                <a href="{% url 'contact' %}" class="blog-home__cta">Contact</a>
             </div>
             
         </div>

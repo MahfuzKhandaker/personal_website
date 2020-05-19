@@ -6,7 +6,7 @@
 
 {% block page_content %}
 
-<div class="container-fluid p-3">
+<div class="container p-3">
 
   <div class="row py-5">
     <div class="col-sm text-center">
@@ -20,26 +20,36 @@
   </div>
 
   <div class="row py-5">
-    <div class="col">
-      {% for post in posts %}
+    {% for post in posts %}
+    <div class="col-md-6">
+      
+
+      <div class="container">
 
         <div class="card mb-2">
-          <div class="row">
-            <div class="col-md-4">
-              <img class="img-thumbnail img-fluid" src="{{ post.main_image.url }}" alt="Card image cap">
-            </div>
-            <div class="col-md-8">
-               <div class="card-body">
-                <h4 class="card-title"><a class="text-dark" href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h4>
-                <p class="card-text">{{ post.body | markdown | safe | truncatewords:15 }}</p>
-                <a class="blog-home__cta" href="{% url 'blog_detail' post.slug %}">Read more</a>
-              </div>
-            </div>
+          <img class="card-img-top img-fluid" src="{{ post.main_image.url }}" alt="Card image cap">
+           <div class="card-body">
+            <h4 class="card-title"><a class="text-dark" href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h4>
+            <small class="text-muted">
+               {{ post.last_modified | timesince }} ago |&nbsp;
+              <i class="far fa-clock text-info"></i> {% if post.read_time <= 1 %} < 1 Minute {% else %}{{ post.read_time }} minutes read {% endif %} |&nbsp;
+              <i class="far fa-eye"></i> {{ post.number_of_views}} views |&nbsp;
+              <i class="far fa-comment"></i> 12 comments |&nbsp;
+              Categories:&nbsp;
+              {% for category in post.categories.all %}
+              <a href="{% url 'blog_category' category.name %}">
+                {{ category.name }}
+                </a>&nbsp;
+              {% endfor %}
+            </small>
+
+            <p class="card-text">{{ post.body | markdown | safe | truncatewords:20 }}</p>
+            <a class="blog-home__cta" href="{% url 'blog_detail' post.slug %}">Read more</a>
           </div>
         </div>
-
-      {% endfor %}
+      </div>
     </div>  
+    {% endfor %}
   </div>
 
   {% if is_paginated %}
@@ -50,6 +60,7 @@
 </div>
 
 <div class="container-fluid">
+  <h1 class="text-center">ABOUT ME</h1>
   {% about_me_detail %}
 </div>
 
