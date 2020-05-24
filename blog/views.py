@@ -38,6 +38,8 @@ def blog_category(request, category):
 
 def blog_detail(request, slug):
     instance = get_object_or_404(Post, slug=slug)
+    instance.number_of_views = instance.number_of_views+1
+    instance.save()
 
     form = CommentForm(request.POST or None)
     if form.is_valid():

@@ -8,6 +8,7 @@ class Home(generic.ListView):
     context_object_name = 'posts'
     paginate_by = 2
 
+
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
         context['post_num'] = Post.objects.count()

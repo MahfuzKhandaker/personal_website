@@ -29,12 +29,12 @@
         <div class="card mb-2">
           <img class="card-img-top" src="{{ post.main_image.url }}" alt="Card image cap">
            <div class="card-body">
-            <h4 class="card-title"><a class="text-dark" href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h4>
+            <h3 class="card-title"><a class="text-dark" href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
             <small class="text-muted">
                {{ post.last_modified | timesince }} ago |&nbsp;
               <i class="far fa-clock text-info"></i> {% if post.read_time <= 1 %} < 1 Minute {% else %}{{ post.read_time }} minutes read {% endif %} |&nbsp;
-              <i class="far fa-eye"></i> {{ post.number_of_views}} views |&nbsp;
-              <i class="far fa-comment"></i> 12 comments |&nbsp;
+              <i class="far fa-eye"></i> {{ post.number_of_views }} views |&nbsp;
+              <i class="far fa-comment"></i> {{ post.comments.count }} comments |&nbsp;
               Categories:&nbsp;
               {% for category in post.categories.all %}
               <a href="{% url 'blog_category' category.name %}">

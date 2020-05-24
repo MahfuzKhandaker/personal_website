@@ -11,10 +11,7 @@
                 
               <h5>I,m a <span class="color-secondary">{{ about_entry.title }}</span></h5>
               <p>{{ about_entry.bio }}</p>
-                
-              <p><a class="color-secondary" href="{% url 'home' %}">{{ about_entry.website }}</a></p>
-
-              <!-- <div> <a class="contact-link" target="_blank" href="{% url 'contact' %}"> Contact Me</a> </div> -->
+              <div class="ml-2"> <a class="subscribe-link" href="{% url 'newsletters:subscribe' %}">Subscribe</a> </div>
           </div>
           <div class="box-two">
             <div class="image" >

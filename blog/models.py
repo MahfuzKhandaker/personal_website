@@ -54,6 +54,7 @@ class Post(models.Model):
     #     content = self.body
     #     return markdown(content)
 
+
     @property
     def comments(self):
         instance = self
