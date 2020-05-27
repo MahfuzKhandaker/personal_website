@@ -2,12 +2,11 @@
 
 {% block page_content %}
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container">
+    <div class="row ">
         <div class="col-12">
-            <div class="ft-main">
-                <div class="ft-main-item">
-                <h2 class="ft-title">Stay Updated</h2>
+            <div class="container">
+                <h2>Stay Updated</h2>
                 <p>Subscribe to our newsletter to get our latest news.</p>
                 {% if messages %}
                 {% for message in messages %}
@@ -25,7 +24,6 @@
                 </form>
                 {% endif %}
               </div>
-            </div>
         </div>
     </div>
 </div>

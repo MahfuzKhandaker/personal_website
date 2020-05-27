@@ -4,15 +4,16 @@
 
 {% block page_content %}
 
-{% block title %}Login{% endblock %}
+{% block title %}<h3>Login</h3>{% endblock %}
 
+<div class="container-fluid">
+    <form method="POST" novalidate>
+        {% csrf_token %}
 
-<form method="POST" novalidate>
-    {% csrf_token %}
+        {{ form|crispy }}
 
-    {{ form|crispy }}
-
-    <button type="submit">Login</button>
-</form>
+        <button class="anywhere-link" type="submit">Login</button>
+    </form>
+</div>
 
 {% endblock page_content %}

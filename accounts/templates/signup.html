@@ -6,13 +6,14 @@
 
 {% block title %}<h3>Sign Up</h3>{% endblock %}
 
+<div class="container-fluid">
+    <form method="POST">
+        {% csrf_token %}
 
-<form method="POST">
-    {% csrf_token %}
+        {{ form|crispy }}
 
-    {{ form|crispy }}
-
-    <button type="submit">Sign Up</button>
-</form>
+        <button class="anywhere-link" type="submit">Sign Up</button>
+    </form>
+</div>
 
 {% endblock page_content %}
