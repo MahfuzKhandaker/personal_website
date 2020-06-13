@@ -15,18 +15,22 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Set the default to production since it’s always
+# good to default to production settings, otherwise you risk deploying a project that
+# has security vulnerabilities.
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a6*!0w3cffb(l-nf+z3zs@co$q%$_3m@i!l8t0^m)+xa0qtegv'
+# SECRET_KEY = os.environ.get('SECRET_KEY', 'not-so-secret-key')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'a6*!0w3cffb(l-nf+z3zs@co$q%$_3m@i!l8t0^m)+xa0qtegv'
+# DEBUG can be True/False or 1/0
+DEBUG = int(os.environ.get('DEBUG', default=0)) 
+# DEBUG = True
+#ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split()
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -36,11 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # A better approach is to add whitenoise.runserver_nostatic 
+    # before django.contrib.stataticfiles
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-
+    
+    # Third-party
     'pagedown.apps.PagedownConfig',
-
     'crispy_forms',
+    'debug_toolbar',
 
     'projects.apps.ProjectsConfig',
     'blog.apps.BlogConfig',
@@ -56,12 +64,14 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'personal_website.urls'
@@ -89,13 +99,17 @@ WSGI_APPLICATION = 'personal_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog_pg_db',
+        'USER': 'postgres',
+        'PASSWORD': 'bismillah_19@pg',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
+
 
 
 # Password validation
@@ -161,3 +175,27 @@ EMAIL_PORT = EMAIL_PORT
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_USE_SSL = EMAIL_USE_SSL
 
+
+# django-debug-toolbar
+import socket
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
+
+# production
+if ENVIRONMENT == 'production':
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_REFERRER_POLICY='origin'
+
+
+# Heroku
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)

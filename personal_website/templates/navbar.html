@@ -1,6 +1,11 @@
 <nav class="sticky-nav">
 	<ul class="menu">
 		<li class="logo"><a href="{% url 'home' %}">letsflyonthewebsky.com</a></li>
+		<li class="item">
+			<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+				<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> 
+			  </form> 
+		</li>
 		<li class="item"><a href="{% url 'home' %}">Home</a></li>
 		<li class="item"><a href="{% url 'about' %}">About</a></li>
 		<li class="item"><a href="{% url 'project_index' %}">Portfolio</a></li>

@@ -4,16 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pylint = "*"
 
 [packages]
+gunicorn = "*"
 django = "*"
-pillow = "*"
-django-markdown-deux = "*"
-django-pagedown = "*"
-markdown = "==3.2.1"
-pylint-django = "*"
-django-crispy-forms = "*"
+psycopg2 = "*"
+django-debug-toolbar = "*"
+django-referrer-policy = "*"
+whitenoise = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.7"

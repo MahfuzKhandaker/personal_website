@@ -9,6 +9,7 @@ from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.views import generic
+from django.db.models import Q
 
 
 class Blogs(generic.ListView):
@@ -21,7 +22,19 @@ class Blogs(generic.ListView):
         context = super(Blogs, self).get_context_data(**kwargs)
         context['post_num'] = Post.objects.count()
         return context
+
         
+class SearchResultsListView(generic.ListView):
+    model = Post
+    template_name = 'search_results.html'
+    context_object_name = 'post_list'
+    
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Post.objects.filter(
+            Q(title__icontains=query) | Q(categories__name__icontains=query)
+        )
+
 
 def blog_category(request, category):
     posts = Post.objects.filter(

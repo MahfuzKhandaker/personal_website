@@ -18,7 +18,7 @@
         <div class="col-md-12 mt-3 left">
             <div class="card mb-4">
                 {% if instance.main_image %}
-                  <img class="card-img-top" src="{{ instance.main_image.url }}" />
+                  <img class="card-img-top" src="{{ instance.main_image.url }}" alt="{{ instance.title }}" />
                 {% endif %}
             
             <div class="card-body">

@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: gunicorn personal_website.wsgi -b 0.0.0.0:8000
+    environment: 
+      - ENVIRONMENT=production
+      - SECRET_KEY=a6*!0w3cffb(l-nf+z3zs@co$q%$_3m@i!l8t0^m)+xa0qtegv
+      - DEBUG=0
+    ports:
+      - 8000:8000
+    depends_on: 
+      - db
+  
+  db:
+    image: postgres
+    environment: 
+      - POSTGRES_DB=blog_pg_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=bismillah_19@pg

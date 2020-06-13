@@ -7,7 +7,6 @@
 {% block page_content %}
 
 <div class="container py-5">
-
   <div class="row py-5">
     <div class="col-sm text-center">
       <h2>Stay Updated</h2>
@@ -27,7 +26,7 @@
       <div class="container">
 
         <div class="card mb-2">
-          <img class="card-img-top" src="{{ post.main_image.url }}" alt="Card image cap">
+          <img class="card-img-top" src="{{ post.main_image.url }}" alt="{{ post.title }}">
            <div class="card-body">
             <h3 class="card-title"><a class="text-dark" href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
             <small class="text-muted">
